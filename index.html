@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>سيارتي · Siyarati</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&display=swap">
+<style>
+:root{--bg:#f2f5f3;--card:#fff;--ink:#14211b;--mute:#5d6b64;--g:#0f6b46;--gd:#0a4b32;--y:#f2b705;--line:#dbe3de;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1512;--card:#17211c;--ink:#e8f0eb;--mute:#9aaba2;--g:#2fa874;--gd:#1f7a53;--line:#27352e}}
+*{box-sizing:border-box}html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Cairo',system-ui,sans-serif;line-height:1.6}
+button,input,select{font:inherit;color:inherit}
+.wrap{max-width:1000px;margin:0 auto;padding:0 14px}
+header{background:var(--gd);color:#fff;position:sticky;top:env(safe-area-inset-top,0px);z-index:5}
+header .wrap{display:flex;align-items:center;gap:10px;height:56px}
+.logo{font-weight:800;font-size:20px;flex:1}
+.logo b{color:var(--y)}
+.lang{display:flex;border:1px solid #ffffff66;border-radius:8px;overflow:hidden}
+.lang button{background:none;border:0;color:#fff;padding:4px 12px;cursor:pointer}
+.lang button.on{background:#fff;color:var(--gd);font-weight:600}
+.btn{background:var(--y);color:#14211b;border:0;border-radius:8px;padding:7px 14px;font-weight:600;cursor:pointer}
+.btn.alt{background:var(--g);color:#fff}
+.hero{background:var(--g);color:#fff;padding:26px 0 70px}
+.hero h1{margin:0 0 4px;font-size:28px;line-height:1.3;font-weight:800}
+.hero p{margin:0;opacity:.9}
+.filters{background:var(--card);border-radius:12px;padding:14px;margin-top:-50px;display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px;border:1px solid var(--line)}
+.seg{grid-column:1/-1;display:flex;gap:6px}
+.seg button{flex:1;border:1px solid var(--line);background:none;border-radius:8px;padding:6px;cursor:pointer}
+.seg button.on{background:var(--g);color:#fff;border-color:var(--g)}
+select,input[type=text],input[type=tel],input[type=number]{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg)}
+.top{display:flex;justify-content:space-between;align-items:center;margin:18px 0 10px}
+.top h2{margin:0;font-size:18px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:12px;padding-bottom:30px}
+.car{background:var(--card);border:1px solid var(--line);border-radius:12px;overflow:hidden;cursor:pointer}
+.pic{height:110px;display:grid;place-items:center;font-size:54px;position:relative}
+.tag{position:absolute;top:8px;inset-inline-start:8px;background:#fff;color:var(--gd);font-size:12px;font-weight:600;padding:1px 9px;border-radius:99px}
+.car .in{padding:10px 12px}
+.car h3{margin:0;font-size:16px}
+.meta{color:var(--mute);font-size:13px}
+.price{display:inline-block;margin-top:6px;background:var(--y);color:#14211b;font-weight:800;padding:1px 10px;border-radius:5px;border:2px solid #14211b}
+.ad{background:repeating-linear-gradient(135deg,var(--card),var(--card) 12px,var(--bg) 12px,var(--bg) 24px);border:2px dashed var(--y);border-radius:12px;padding:14px;display:flex;flex-direction:column;justify-content:center;gap:6px;min-height:170px}
+.ad small{color:var(--mute)}
+.ad.wide{grid-column:1/-1;min-height:0;flex-direction:row;align-items:center;justify-content:space-between;margin-top:14px}
+.ov{position:fixed;inset:0;background:#000a;display:none;align-items:center;justify-content:center;padding:14px;z-index:20}
+.ov.show{display:flex}
+.box{background:var(--card);border-radius:14px;padding:18px;width:100%;max-width:380px;max-height:90vh;overflow:auto}
+.box h3{margin:0 0 10px}
+.box label{display:block;font-size:13px;color:var(--mute);margin:8px 0 2px}
+.row{display:flex;gap:8px;margin-top:14px}.row .btn{flex:1}
+.note{font-size:12px;color:var(--mute);margin-top:8px}
+.code{font-size:30px;font-weight:800;letter-spacing:6px;text-align:center;background:var(--bg);border-radius:10px;padding:8px;margin:10px 0}.btn.wa{display:block;text-align:center;text-decoration:none;background:#25d366;color:#08210f}.pt{font-size:13px;color:var(--mute);margin-inline-start:4px}.pts button{font-size:12px;line-height:1.3;padding:6px 2px}
+.spec{display:grid;grid-template-columns:1fr 1fr;gap:4px 12px;margin:10px 0;font-size:13px}.spec div{display:flex;justify-content:space-between;gap:6px;border-bottom:1px solid var(--line)}.spec span{color:var(--mute)}.spec p{grid-column:1/-1;margin:4px 0}.spec .ops{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:4px;border:0}.ops i{font-style:normal;font-size:12px;background:var(--bg);border:1px solid var(--line);border-radius:99px;padding:0 8px}.chk{display:flex;flex-wrap:wrap;gap:4px 12px}.chk label{display:flex;align-items:center;gap:4px;margin:0;color:var(--ink)}.chk input{width:auto}textarea{width:100%;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);min-height:70px}.thumbs{display:flex;gap:6px;margin-top:6px}.thumbs img{width:56px;height:56px;object-fit:cover;border-radius:6px}
+a.btn{text-decoration:none;display:inline-block}
+.empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:30px}
+footer{text-align:center;color:var(--mute);font-size:12px;padding:16px}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+ <div class="logo">🚗 <span data-t="brand"></span><b>.</b></div>
+ <div class="lang" role="group" aria-label="Langue / اللغة"><button data-l="ar">العربية</button><button data-l="fr">Français</button></div>
+ <button class="btn" id="loginBtn"></button>
+</div></header>
+
+<section class="hero"><div class="wrap">
+ <h1 data-t="h1"></h1><p data-t="sub"></p>
+</div></section>
+
+<main class="wrap">
+ <div class="filters">
+  <div class="seg" id="seg"></div>
+  <select id="fBrand"></select>
+  <select id="fW"></select>
+  <select id="fP"></select>
+  <select id="fG"></select>
+  <select id="fF"></select>
+ </div>
+ <div class="top"><h2 id="count"></h2><button class="btn alt" id="addBtn"></button></div>
+ <div class="grid" id="grid"></div>
+</main>
+<footer data-t="foot"></footer>
+
+<div class="ov" id="ov"><div class="box" id="box"></div></div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.js"></script>
+<script>
+const W={alg:['الجزائر','Alger'],ora:['وهران','Oran'],con:['قسنطينة','Constantine'],set:['سطيف','Sétif'],oua:['ورقلة','Ouargla'],oue:['الوادي','El Oued']};
+const T={
+ar:{brand:'سيارتي',h1:'اشترِ وبِع سيارتك بسهولة',sub:'سيارات جديدة ومستعملة في كل الولايات، والتسجيل مجاني برقم هاتفك',login:'تسجيل الدخول',out:'خروج',add:'+ أضف إعلانًا',all:'الكل',new:'جديدة',used:'مستعملة',brand_:'كل الماركات',wil:'كل الولايات',pr:'كل الأسعار',res:n=>n+' إعلان',none:'لا توجد نتائج. جرّب تغيير الفلاتر.',da:'مليون',km:'كم',spons:'إعلان ممول',foot:'نموذج أولي · البيانات والإعلانات تجريبية',
+ lt:'تسجيل الدخول برقم الهاتف',ph:'رقم الهاتف (مثال: 0770123456)',send:'التالي',code:'رمز التحقق',ok:'تأكيد',cancel:'إلغاء',demo:'نسخة تجريبية: الرمز هو 1234',badph:'أدخل رقمًا جزائريًا صحيحًا (05 أو 06 أو 07)',badc:'الرمز غير صحيح',wat:'التحقق عبر واتساب',wa1:'أرسل هذا الرمز إلينا على واتساب من رقمك. الأمر مجاني.',wa2:'افتح واتساب وأرسل الرمز',wa3:'بعد إرسال الرسالة اضغط تأكيد. (نسخة تجريبية: لا يتم التحقق الفعلي بعد)',mksel:'اختر الماركة',mdsel:'اختر الموديل',other:'أخرى',pf:'سعر ثابت',pn:'قابل للتفاوض',po:'أفضل عرض',pty:'نوع السعر',gb:'علبة السرعة',gm:'يدوية',ga:'أوتوماتيكية',fu:'الوقود',fp:'بنزين',fd:'ديزل',fg:'غاز (GPL)',fh:'هجين',fe:'كهربائية',kmq:'عدد الكيلومترات المقطوعة',col:'اللون',pap:'الأوراق',pp1:'بطاقة رمادية',pp2:'وكالة (توكيل)',opt:'الخيارات',ds:'وصف الإعلان',tel:'رقم هاتف البائع',pw:'كلمة السر (6 أحرف على الأقل)',badpw:'كلمة السر قصيرة جدًا',errlog:'تعذّر الدخول: تحقق من الرقم وكلمة السر',rep:'إبلاغ',rep1:'احتيال',rep2:'محتوى غير لائق',rep3:'سيارة مباعة',repdone:'شكرًا، تم استلام البلاغ',del:'حذف الإعلان',saving:'جارٍ النشر...',errpub:'تعذّر النشر، حاول مجددًا',phs:'الصور (حتى 4)',o_ac:'مكيّف',o_abs:'ABS',o_gps:'GPS',o_cam:'كاميرا خلفية',o_roof:'فتحة سقف',o_lea:'مقاعد جلد',
+ at:'إضافة إعلان',mk:'الماركة',md:'الموديل',yr:'السنة',pc:'السعر (بالمليون)',st:'الحالة',pub:'انشر الإعلان',call:'اتصل بالبائع',close:'إغلاق',lp:['أقل من 200 مليون','200 – 500 مليون','أكثر من 500 مليون'],
+ ads:[['وكالة النصر للسيارات','تخفيضات على السيارات الجديدة هذا الشهر','تواصل معنا'],['تأمين سيارتك في 5 دقائق','اطلب عرض سعر مجاني','اطلب الآن'],['اعلن هنا','هذه المساحة متاحة لوكلاء السيارات','احجز مساحتك']]},
+fr:{brand:'Siyarati',h1:'Achetez et vendez votre voiture simplement',sub:'Voitures neuves et d’occasion dans toutes les wilayas. Inscription gratuite avec votre numéro de téléphone',login:'Se connecter',out:'Quitter',add:'+ Déposer une annonce',all:'Toutes',new:'Neuves',used:'Occasion',brand_:'Toutes les marques',wil:'Toutes les wilayas',pr:'Tous les prix',res:n=>n+' annonce'+(n>1?'s':''),none:'Aucun résultat. Modifiez les filtres.',da:'millions',km:'km',spons:'Annonce sponsorisée',foot:'Prototype · données et publicités fictives',
+ lt:'Connexion par téléphone',ph:'Numéro de téléphone (ex. 0770123456)',send:'Suivant',code:'Code de vérification',ok:'Valider',cancel:'Annuler',demo:'Version démo : le code est 1234',badph:'Entrez un numéro algérien valide (05, 06 ou 07)',badc:'Code incorrect',wat:'Vérification par WhatsApp',wa1:'Envoyez-nous ce code sur WhatsApp depuis votre numéro. C’est gratuit.',wa2:'Ouvrir WhatsApp et envoyer le code',wa3:'Après l’envoi, appuyez sur Valider. (Démo : pas encore de vérification réelle)',mksel:'Choisir la marque',mdsel:'Choisir le modèle',other:'Autre',pf:'Prix fixe',pn:'À débattre',po:'Meilleure offre',pty:'Type de prix',gb:'Boîte de vitesses',gm:'Manuelle',ga:'Automatique',fu:'Énergie',fp:'Essence',fd:'Diesel',fg:'GPL',fh:'Hybride',fe:'Électrique',kmq:'Kilométrage (km)',col:'Couleur',pap:'Papiers',pp1:'Carte grise',pp2:'Procuration',opt:'Options',ds:'Description',tel:'Téléphone du vendeur',pw:'Mot de passe (6 caractères min.)',badpw:'Mot de passe trop court',errlog:'Connexion impossible : vérifiez le numéro et le mot de passe',rep:'Signaler',rep1:'Arnaque',rep2:'Contenu inapproprié',rep3:'Voiture vendue',repdone:'Merci, signalement reçu',del:'Supprimer l’annonce',saving:'Publication…',errpub:'Échec de la publication, réessayez',phs:'Photos (jusqu’à 4)',o_ac:'Climatisation',o_abs:'ABS',o_gps:'GPS',o_cam:'Caméra de recul',o_roof:'Toit ouvrant',o_lea:'Sièges cuir',
+ at:'Déposer une annonce',mk:'Marque',md:'Modèle',yr:'Année',pc:'Prix (en millions)',st:'État',pub:'Publier l’annonce',call:'Appeler le vendeur',close:'Fermer',lp:['Moins de 200 millions','200 – 500 millions','Plus de 500 millions'],
+ ads:[['Auto Ennasr','Remises sur les voitures neuves ce mois-ci','Nous contacter'],['Assurez votre voiture en 5 minutes','Devis gratuit','Demander un devis'],['Votre publicité ici','Espace disponible pour les concessionnaires','Réserver']]}};
+let lang=(()=>{try{return localStorage.getItem('lang')||''}catch(e){return ''}})(),user=null,cond='all';
+const WA='213000000000';
+const SB_URL='https://rujvziyjjfdjnhbuqhsr.supabase.co',SB_KEY='sb_publishable_iu1a48nxWBGmg4-Yc4LeIw_lek8Lu3s';
+const sb=window.supabase.createClient(SB_URL,SB_KEY);
+let uid=null,ADS=[];
+const IN={fixed:'f',negotiable:'n',best_offer:'o'},OUT={f:'fixed',n:'negotiable',o:'best_offer'},GB={manual:'m',automatic:'a'},GBO={m:'manual',a:'automatic'},FUI={petrol:'p',diesel:'d',lpg:'g',hybrid:'h',electric:'e'},FUO={p:'petrol',d:'diesel',g:'lpg',h:'hybrid',e:'electric'},PPI={carte_grise:'c',procuration:'p'},PPO={c:'carte_grise',p:'procuration'};
+const fromRow=r=>({id:r.id,uid:r.user_id,b:esc(r.brand),m:esc(r.model||''),y:r.year,km:r.km,p:+r.price_million,pt:IN[r.price_type],c:r.condition,g:GB[r.gearbox],f:FUI[r.fuel],cl:r.color,pp:PPI[r.papers],op:r.options||[],w:W[r.wilaya]?r.wilaya:'alg',d:esc(r.description||''),ph:esc(r.phone),imgs:(r.images||[]).filter(u=>/^https:\/\//.test(u)),img:((r.images||[]).find(u=>/^https:\/\//.test(u)))||'',e:'🚗',col:'#d9e6df'});
+function setUser(s){uid=s?s.user.id:null;user=s?s.user.email.split('@')[0]:null}
+async function load(){
+ const q=await sb.from('listings').select('*').eq('status','active').order('created_at',{ascending:false}).limit(200);
+ if(!q.error){cars.length=0;cars.push(...q.data.map(fromRow))}
+ const a=await sb.from('ads').select('*').eq('position','feed');
+ if(!a.error)ADS=a.data;
+ render();
+}
+
+const G={m:'gm',a:'ga'},FU={p:'fp',d:'fd',g:'fg',h:'fh',e:'fe'},OPT=['ac','abs','gps','cam','roof','lea'];
+const COL=[['white','أبيض','Blanc'],['black','أسود','Noir'],['grey','رمادي','Gris'],['silver','فضي','Argent'],['red','أحمر','Rouge'],['blue','أزرق','Bleu'],['green','أخضر','Vert'],['beige','بيج','Beige']];
+const esc=s=>String(s).replace(/[<>&"]/g,'');
+let imgs=[];
+const PI={f:'🏷️',n:'🤝',o:'💬'};
+const M=Object.fromEntries(`Toyota:Yaris,Corolla,Camry,RAV4,C-HR,Land Cruiser,Prado,Fortuner,Hilux,Avensis
+Hyundai:i10,i20,Accent,Elantra,Sonata,Tucson,Santa Fe,Creta,Kona,Venue
+Kia:Picanto,Rio,Cerato,Sportage,Sorento,Seltos,Sonet,Stonic
+Renault:Clio,Symbol,Megane,Captur,Kadjar,Koleos,Talisman,Kangoo,Master,Express
+Dacia:Sandero,Logan,Duster,Jogger,Dokker,Lodgy
+Peugeot:208,301,308,508,2008,3008,5008,Partner,Expert,Boxer
+Citroën:C3,C4,C-Elysée,C5 Aircross,Berlingo,Jumpy
+Volkswagen:Polo,Golf,Jetta,Passat,Tiguan,Touareg,T-Roc,Caddy,Transporter
+Skoda:Fabia,Rapid,Octavia,Superb,Karoq,Kodiaq
+Seat:Ibiza,Leon,Arona,Ateca
+Fiat:500,Panda,Punto,Tipo,Doblo,Ducato
+Ford:Fiesta,Focus,EcoSport,Kuga,Explorer,Ranger,Transit,Mustang
+Opel:Corsa,Astra,Crossland,Mokka,Insignia
+Nissan:Micra,Sunny,Juke,Qashqai,X-Trail,Kicks,Navara,Patrol
+Mazda:2,3,6,CX-3,CX-5,CX-30
+Honda:Civic,Accord,Jazz,HR-V,CR-V
+Suzuki:Alto,Celerio,Swift,Baleno,Dzire,Vitara,Jimny
+Mitsubishi:Lancer,ASX,Outlander,Pajero,L200
+Isuzu:D-Max
+Subaru:Impreza,XV,Forester,Outback
+SsangYong:Tivoli,Korando,Rexton
+Lada:Granta,Niva
+Chevrolet:Spark,Aveo,Optra,Cruze,Captiva
+Mercedes-Benz:A-Class,C-Class,E-Class,S-Class,GLA,GLC,GLE,G-Class,Vito,Sprinter
+BMW:Series 1,Series 3,Series 5,Series 7,X1,X3,X5,X6
+Audi:A1,A3,A4,A5,A6,Q2,Q3,Q5,Q7
+Land Rover:Defender,Discovery,Range Rover,Range Rover Sport,Evoque
+Jeep:Renegade,Compass,Cherokee,Grand Cherokee,Wrangler
+Volvo:S60,S90,XC40,XC60,XC90
+Lexus:IS,ES,NX,RX,LX
+Porsche:911,Macan,Cayenne,Panamera
+Mini:Cooper,Countryman
+Alfa Romeo:Giulia,Stelvio
+Tesla:Model 3,Model S,Model X,Model Y
+Chery:Tiggo 2,Tiggo 4,Tiggo 7,Tiggo 8,Arrizo 5
+Geely:Emgrand,Coolray,Azkarra
+BYD:Atto 3,Seal,Han,Tang
+MG:MG3,MG5,ZS,HS
+Haval:H6,Jolion
+JAC:S2,J7,T8
+Changan:Alsvin,CS35,CS75
+DFSK:Glory 580,Seres
+BAIC:X35,X55`.split('\n').map(l=>{const i=l.indexOf(':');return[l.slice(0,i),l.slice(i+1).split(',')]}));
+const cars=[];
+const $=s=>document.querySelector(s),t=k=>T[lang][k];
+const fmt=n=>String(n).replace(/\B(?=(\d{3})+(?!\d))/g,' ');
+const fill=(sel,arr,first)=>{const v=sel.value;sel.innerHTML='<option value="">'+first+'</option>'+arr.map(a=>`<option value="${a[0]}">${a[1]}</option>`).join('');sel.value=v};
+function render(){
+ const L=lang==='ar'?0:1;
+ document.documentElement.lang=lang;document.documentElement.dir=lang==='ar'?'rtl':'ltr';
+ document.querySelectorAll('[data-t]').forEach(e=>e.textContent=t(e.dataset.t));
+ document.querySelectorAll('[data-l]').forEach(b=>b.classList.toggle('on',b.dataset.l===lang));
+ $('#loginBtn').textContent=user?t('out'):t('login');$('#addBtn').textContent=t('add');
+ $('#seg').innerHTML=['all','new','used'].map(c=>`<button data-c="${c}" class="${cond===c?'on':''}">${t(c)}</button>`).join('');
+ fill($('#fBrand'),Object.keys(M).map(b=>[b,b]),t('brand_'));
+ fill($('#fW'),Object.keys(W).map(k=>[k,W[k][L]]),t('wil'));
+ fill($('#fP'),t('lp').map((x,i)=>[i,x]),t('pr'));
+ fill($('#fG'),[['m',t('gm')],['a',t('ga')]],t('gb'));fill($('#fF'),Object.keys(FU).map(k=>[k,t(FU[k])]),t('fu'));
+ const fb=$('#fBrand').value,fw=$('#fW').value,fp=$('#fP').value,fg=$('#fG').value,ff=$('#fF').value;
+ const list=cars.filter(c=>(cond==='all'||c.c===cond)&&(!fb||c.b===fb)&&(!fw||c.w===fw)&&(fp===''||(fp==='0'?c.p<200:fp==='1'?c.p>=200&&c.p<=500:c.p>500))&&(!fg||(c.g||'m')===fg)&&(!ff||(c.f||'p')===ff));
+ $('#count').textContent=t('res')(list.length);
+ let h='';
+ list.forEach((c,i)=>{
+  h+=`<div class="car" data-i="${cars.indexOf(c)}"><div class="pic" style="background:${c.img?`center/cover url(${c.img})`:c.col}"><span class="tag">${t(c.c)}</span>${c.img?'':c.e}</div><div class="in"><h3>${c.b} ${c.m}</h3><div class="meta">${c.y} · ${fmt(c.km)} ${t('km')} · ${W[c.w][L]}</div><div class="meta">${t(G[c.g||'m'])} · ${t(FU[c.f||'p'])}</div><span class="price">${fmt(c.p)} ${t('da')}</span> <span class="pt">${PI[c.pt||'f']} ${t('p'+(c.pt||'f'))}</span></div></div>`;
+  if(i%4===3)h+=adHtml(Math.floor(i/4)%3);
+ });
+ if(!list.length)h='<div class="empty">'+t('none')+'</div>';
+ $('#grid').innerHTML=h+adHtml(2,true);
+}
+function adHtml(n,wide){if(!ADS.length)return '';const r=ADS[n%ADS.length],f=lang==='ar'?'ar':'fr',lk=/^https?:\/\//.test(r.link||'')?esc(r.link):'',a=[r['title_'+f]||r.advertiser||'',r['body_'+f]||'',r['cta_'+f]||'›'];return `<div class="ad${wide?' wide':''}"><div><small>${t('spons')}</small><div><b>${esc(a[0])}</b></div><div class="meta">${esc(a[1])}</div></div>${lk?`<a class="btn" href="${lk}" target="_blank" rel="noopener">${esc(a[2])}</a>`:''}</div>`}
+function spec(c){const L=lang==='ar'?0:1,r=[[t('gb'),t(G[c.g||'m'])],[t('fu'),t(FU[c.f||'p'])]];
+ if(c.cl)r.push([t('col'),COL.find(x=>x[0]===c.cl)[1+L]]);if(c.pp)r.push([t('pap'),t(c.pp==='c'?'pp1':'pp2')]);
+ let h=r.map(x=>`<div><span>${x[0]}</span><b>${x[1]}</b></div>`).join('');
+ if(c.op&&c.op.length)h+=`<div class="ops">${c.op.map(k=>'<i>'+t('o_'+k)+'</i>').join('')}</div>`;
+ if(c.d)h+=`<p class="meta">${c.d}</p>`;return h}
+function open_(html){$('#box').innerHTML=html;$('#ov').classList.add('show')}
+function close_(){$('#ov').classList.remove('show')}
+function loginForm(after){
+ open_(`<h3>${t('lt')}</h3><label>${t('ph')}</label><input type="tel" id="ph" inputmode="numeric" maxlength="10" dir="ltr"><label>${t('pw')}</label><input type="password" id="pw"><div class="note" id="msg"></div><div class="row"><button class="btn alt" id="x">${t('cancel')}</button><button class="btn" id="go">${t('ok')}</button></div>`);
+ $('#x').onclick=close_;
+ $('#go').onclick=async()=>{const p=$('#ph').value.trim(),pw=$('#pw').value,m=$('#msg');
+  if(!/^0[567]\d{8}$/.test(p)){m.textContent=t('badph');return}
+  if(pw.length<6){m.textContent=t('badpw');return}
+  const email=p+'@phone.siyarati.app';
+  let r=await sb.auth.signInWithPassword({email,password:pw});
+  if(r.error){r=await sb.auth.signUp({email,password:pw});
+   if(r.error||!r.data.session){m.textContent=t('errlog');return}
+   const q=await sb.from('profiles').insert({id:r.data.user.id,phone:p});if(q.error){m.textContent=t('errlog');return}}
+  setUser(r.data.session);close_();render();if(after)after()};
+}
+function addForm(){
+ const L=lang==='ar'?0:1;
+ open_(`<h3>${t('at')}</h3><label>${t('mk')}</label><select id="ab"><option value="">${t('mksel')}</option>${Object.keys(M).map(b=>`<option>${b}</option>`).join('')}<option value="__o">${t('other')}</option></select><label>${t('md')}</label><select id="am" disabled></select><input type="text" id="ao" style="display:none;margin-top:6px"><label>${t('yr')}</label><select id="ay">${Array.from({length:30},(_,i)=>2026-i).map(y=>`<option>${y}</option>`).join('')}</select><label>${t('pc')}</label><input type="number" id="ap" inputmode="numeric" placeholder="200"><label>${t('pty')}</label><div class="seg pts" id="pts">${['f','n','o'].map((k,i)=>`<button type="button" data-p="${k}" class="${i?'':'on'}">${PI[k]}<br>${t('p'+k)}</button>`).join('')}</div><label>${t('st')}</label><select id="ac"><option value="new">${t('new')}</option><option value="used">${t('used')}</option></select><label>${t('gb')}</label><select id="ag"><option value="m">${t('gm')}</option><option value="a">${t('ga')}</option></select><label>${t('fu')}</label><select id="af">${Object.keys(FU).map(k=>`<option value="${k}">${t(FU[k])}</option>`).join('')}</select><label>${t('kmq')}</label><input type="number" id="ak" inputmode="numeric"><label>${t('col')}</label><select id="acl">${COL.map(x=>`<option value="${x[0]}">${x[1+L]}</option>`).join('')}</select><label>${t('pap')}</label><select id="app"><option value="c">${t('pp1')}</option><option value="p">${t('pp2')}</option></select><label>${t('opt')}</label><div class="chk">${OPT.map(k=>`<label><input type="checkbox" value="${k}"> ${t('o_'+k)}</label>`).join('')}</div><label>${t('wil')}</label><select id="aw">${Object.keys(W).map(k=>`<option value="${k}">${W[k][L]}</option>`).join('')}</select><label>${t('tel')}</label><input type="tel" id="at" inputmode="numeric" maxlength="10" dir="ltr" value="${user||''}"><div class="note" id="aterr"></div><label>${t('ds')}</label><textarea id="ad" maxlength="500"></textarea><label>${t('phs')}</label><input type="file" id="aph" accept="image/*" multiple><div class="thumbs" id="th"></div><div class="row"><button class="btn alt" id="x">${t('cancel')}</button><button class="btn" id="pub">${t('pub')}</button></div>`);
+ $('#x').onclick=close_;
+ document.querySelectorAll('#pts button').forEach(b=>b.onclick=()=>document.querySelectorAll('#pts button').forEach(x=>x.classList.toggle('on',x===b)));
+ $('#ab').onchange=()=>{const v=$('#ab').value,m=$('#am'),o=$('#ao'),oth=v==='__o';m.style.display=oth?'none':'';o.style.display=oth?'':'none';m.disabled=!v||oth;m.innerHTML=(!v||oth)?'':`<option value="">${t('mdsel')}</option>`+M[v].map(x=>`<option>${x}</option>`).join('')+`<option value="__o">${t('other')}</option>`};
+ $('#am').onchange=()=>{$('#ao').style.display=$('#am').value==='__o'?'':'none'};
+ imgs=[];$('#aph').onchange=e=>{imgs=[];$('#th').innerHTML='';[...e.target.files].slice(0,4).forEach(f=>{const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const s=Math.min(1,800/Math.max(im.width,im.height)),cv=document.createElement('canvas');cv.width=im.width*s;cv.height=im.height*s;cv.getContext('2d').drawImage(im,0,0,cv.width,cv.height);const u=cv.toDataURL('image/jpeg',.7);imgs.push(u);$('#th').insertAdjacentHTML('beforeend','<img src="'+u+'">')};im.src=r.result};r.readAsDataURL(f)})};
+ $('#pub').onclick=async()=>{const ob=$('#ab').value==='__o',b=ob?$('#ao').value.trim():$('#ab').value,m=ob?'':($('#am').value==='__o'?$('#ao').value.trim():$('#am').value),p=+$('#ap').value,tp=$('#at').value.trim(),c=$('#ac').value;
+  if(!b||(!m&&!ob)||!p)return;if(!/^0[567]\d{8}$/.test(tp)){$('#aterr').textContent=t('badph');return}
+  const btn=$('#pub');btn.disabled=true;btn.textContent=t('saving');
+  try{const urls=[];for(const u of imgs){const bl=await (await fetch(u)).blob(),path=uid+'/'+crypto.randomUUID()+'.jpg',up=await sb.storage.from('listing-images').upload(path,bl,{contentType:'image/jpeg'});if(up.error)throw up.error;urls.push(sb.storage.from('listing-images').getPublicUrl(path).data.publicUrl)}
+  const q=await sb.from('listings').insert({user_id:uid,brand:esc(b),model:esc(m),year:+$('#ay').value,price_million:p,price_type:OUT[$('#pts .on').dataset.p],condition:c,gearbox:GBO[$('#ag').value],fuel:FUO[$('#af').value],km:c==='new'?0:(+$('#ak').value||0),color:$('#acl').value,papers:PPO[$('#app').value],options:[...document.querySelectorAll('.chk input:checked')].map(x=>x.value),wilaya:$('#aw').value,description:esc($('#ad').value.trim()),phone:tp,images:urls});
+  if(q.error)throw q.error;close_();cond='all';await load()}catch(e){btn.disabled=false;btn.textContent=t('pub');$('#aterr').textContent=t('errpub')}};
+}
+function detail(i){const c=cars[i],L=lang==='ar'?0:1;
+ open_(`<div class="pic" style="background:${c.img?`center/cover url(${c.img})`:c.col};border-radius:10px">${c.img?'':c.e}</div><div class="thumbs">${(c.imgs||[]).map(u=>`<img src="${u}">`).join('')}</div><h3 style="margin-top:10px">${c.b} ${c.m}</h3><div class="meta">${c.y} · ${fmt(c.km)} ${t('km')} · ${W[c.w][L]} · ${t(c.c)}</div><span class="price">${fmt(c.p)} ${t('da')}</span> <span class="pt">${PI[c.pt||'f']} ${t('p'+(c.pt||'f'))}</span><div class="spec">${spec(c)}</div><div class="row"><button class="btn alt" id="x">${t('close')}</button><button class="btn" id="cl">${t('call')}</button></div><div class="row"><button class="btn alt" id="rp">⚑ ${t('rep')}</button>${c.uid&&c.uid===uid?`<button class="btn alt" id="dl">${t('del')}</button>`:''}</div>`);
+ $('#x').onclick=close_;$('#cl').onclick=()=>{location.href='tel:'+c.ph};
+ $('#rp').onclick=()=>{if(!uid){close_();loginForm();return}open_(`<h3>${t('rep')}</h3><div class="row" style="flex-direction:column">${[1,2,3].map(k=>`<button class="btn alt" data-rs="${k}">${t('rep'+k)}</button>`).join('')}</div>`);document.querySelectorAll('[data-rs]').forEach(b=>b.onclick=async()=>{await sb.from('reports').insert({listing_id:c.id,reporter_id:uid,reason:b.textContent});open_(`<h3>${t('repdone')}</h3><div class="row"><button class="btn" id="x">${t('close')}</button></div>`);$('#x').onclick=close_})};
+ if($('#dl'))$('#dl').onclick=async()=>{await sb.from('listings').delete().eq('id',c.id);close_();load()};
+}
+document.addEventListener('click',e=>{
+ const l=e.target.closest('[data-l]');if(l){lang=l.dataset.l;try{localStorage.setItem('lang',lang)}catch(_){}render();return}
+ const s=e.target.closest('[data-c]');if(s){cond=s.dataset.c;render();return}
+ const c=e.target.closest('.car');if(c){detail(+c.dataset.i);return}
+ if(e.target===$('#ov'))close_();
+});
+['#fBrand','#fW','#fP','#fG','#fF'].forEach(s=>$(s).addEventListener('change',render));
+$('#loginBtn').onclick=()=>user?(sb.auth.signOut(),setUser(null),render()):loginForm();
+$('#addBtn').onclick=()=>user?addForm():loginForm(addForm);
+if(!lang){lang='ar';render();
+ open_(`<h3 style="text-align:center">اختر لغتك · Choisissez votre langue</h3><div class="row" style="flex-direction:column"><button class="btn" data-l="ar" onclick="close_()">العربية</button><button class="btn alt" data-l="fr" onclick="close_()">Français</button></div>`);
+}else render();
+sb.auth.getSession().then(({data})=>{setUser(data.session);render()});
+load();
+</script>
+</body>
+</html>
